@@ -9,6 +9,7 @@ body {
     min-height: 100vh;
     min-width: 100vw;
     background-color: #363e28;
+    overflow-x: hidden;
 }
 
 .container {
@@ -18,12 +19,14 @@ body {
 
 .container .header {
     display: flex;
+    align-items: center;
     justify-content: end;
+    height: 10vh;
 }
 
 .container .header nav {
-    margin-top: 3rem;
-    margin-right: 3rem;
+    margin-top: 1.5rem;
+    margin-right: 2.5rem;
 }
 
 .container .header nav ul {
@@ -137,19 +140,27 @@ body {
 }
 
 .container .footer {
-    min-width: 100vw;
-    position: absolute;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin-top: 7rem;
+}
+
+.container .footer i {
+    position: relative;
+    right: -48px;
     bottom: 0;
+    z-index: 999;
+    font-size: 1rem;
+    color: ghostwhite;
 }
 
 .container .footer button {
-    position: absolute;
-    right: 0;
-    bottom: 0;
     margin: 1.1rem 0.99rem;
     color: ghostwhite;
     background-color: #344e0b;
-
     border: none;
     cursor: pointer;
     font-size: 0.9rem;
@@ -157,19 +168,21 @@ body {
     padding-left: 2.3rem;
     padding-right: 0.9rem;
     border-radius: 100px;
-
     box-shadow: -0 2px 6px black;
-}
-
-.container .footer i {
-    position: absolute;
-    right: 158px;
-    bottom: 27px;
-    z-index: 999;
-    font-size: 1rem;
-    color: ghostwhite;
 }
 
 .container .footer button:hover {
     background-color: #445f18;
+}
+
+@media screen and (max-width: 768px) {
+    .container .header {
+        justify-content: center;
+    }
+    .container .header nav {
+        margin-right: 0;
+    }
+    .container .footer {
+        justify-content: center;
+    }
 }
