@@ -9,7 +9,6 @@ body {
     min-height: 100vh;
     min-width: 100vw;
     background-color: #363e28;
-    overflow-x: hidden;
 }
 
 .container {
@@ -17,6 +16,7 @@ body {
     flex-direction: column;
 }
 
+/* HEADER */
 .container .header {
     display: flex;
     align-items: center;
@@ -29,36 +29,53 @@ body {
     margin-right: 2.5rem;
 }
 
-.container .header nav ul {
+.container .header nav ul#desktop-icon {
     display: flex;
     flex-direction: row;
     gap: 1.5rem;
 }
 
-.container .header nav ul li {
+.container .header nav ul#desktop-icon li {
     list-style-type: none;
 }
 
-.container .header nav ul li a {
+.container .header nav ul#desktop-icon li a {
     font-size: 0.9rem;
     font-weight: 500;
     text-decoration: none;
     color: ghostwhite;
 }
 
-.container .header nav ul li a:hover {
+.container .header nav ul#desktop-icon li a:hover {
     text-decoration: underline;
 }
 
-.container .header nav ul i {
+.container .header nav ul#desktop-icon i {
     font-size: 1.2rem;
     color: ghostwhite;
 }
 
-.container .header nav ul i:hover {
+.container .header nav ul#desktop-icon i:hover {
     cursor: pointer;
 }
 
+.container .header nav ul#mobile-icon {
+    display: none;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.container .header nav ul#mobile-icon i {
+    font-size: 1.2rem;
+    color: ghostwhite;
+}
+
+.container .header nav ul#mobile-icon i:hover {
+    cursor: pointer;
+}
+/* END OF HEADER */
+
+/* CONTENT */
 .container .content {
     display: flex;
     flex-direction: column;
@@ -68,8 +85,9 @@ body {
 }
 
 .container .content img.google-logo {
-    margin-top: 4rem;
     width: 20%;
+    min-width: 175px;
+    margin-top: 4rem;
     object-fit: contain;
     filter: invert(57%) sepia(100%) saturate(90%) hue-rotate(64deg) brightness(110%) contrast(175%);
 }
@@ -77,13 +95,13 @@ body {
 .container .content .input-box {
     display: flex;
     justify-content: center;
-    min-width: 55vw;
+    min-width: 55%;
     position: relative;
 }
 
 .container .content .input-box input {
     width: 100%;
-    height: 100%;
+    min-width: 575px;
     border-radius: 25px;
     padding: 0.8rem 2.75rem;
     font-size: 1.1rem;
@@ -93,23 +111,22 @@ body {
 
 .container .content .input-box i {
     position: absolute;
-    font-size: 1.1rem;
+    font-size: 1rem;
     left: 16px;
     top: 14px;
 }
 
 .container .content .box-container {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    min-width: 100vw;
+    justify-content: center;
 }
 
 .container .content .box-container #box,
 #box-shortcut {
     color: ghostwhite;
-    padding: 1rem;
+    padding: 0.8rem;
     min-width: 112px;
-    min-height: 112px;
     text-align: center;
 }
 
@@ -134,37 +151,38 @@ body {
 
 .container .content .box-container #box figcaption,
 #box-shortcut figcaption {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     margin-top: 0.75rem;
-    text-align: center;
 }
+/* END OF CONTENT */
 
+/* FOOTER */
 .container .footer {
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: end;
     align-items: center;
-    margin-top: 7rem;
+    margin-top: 8.5rem;
 }
 
 .container .footer i {
     position: relative;
-    right: -48px;
+    right: -46px;
     bottom: 0;
     z-index: 999;
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: ghostwhite;
 }
 
 .container .footer button {
-    margin: 1.1rem 0.99rem;
     color: ghostwhite;
+    margin: 1.1rem 0.99rem;
     background-color: #344e0b;
     border: none;
     cursor: pointer;
-    font-size: 0.9rem;
-    padding-block: 0.7rem;
+    font-size: 0.8rem;
+    padding-block: 0.6rem;
     padding-left: 2.3rem;
     padding-right: 0.9rem;
     border-radius: 100px;
@@ -174,15 +192,89 @@ body {
 .container .footer button:hover {
     background-color: #445f18;
 }
+/* END OF FOOTER */
 
+/* Viewport Tablet */
 @media screen and (max-width: 768px) {
     .container .header {
-        justify-content: center;
+        justify-content: flex-start;
     }
     .container .header nav {
         margin-right: 0;
     }
+    .container .header nav ul#desktop-icon {
+        display: none;
+    }
+    .container .header nav ul#mobile-icon {
+        display: flex;
+        gap: 1rem;
+        margin-inline: 1rem;
+    }
+    .container .header nav ul#mobile-icon i.bi-google {
+        position: absolute;
+        right: 0;
+        margin-right: 9rem;
+    }
+    .container .header nav ul#mobile-icon i.bi-files-alt {
+        position: absolute;
+        right: 0;
+        margin-right: 6rem;
+    }
+    .container .header nav ul#mobile-icon i.bi-three-dots-vertical {
+        position: absolute;
+        right: 0;
+        margin-right: 3rem;
+    }
+    .container .content img.google-logo {
+        width: 30%;
+    }
+    .container .content .input-box {
+        min-width: 75%;
+    }
+    .container .content .input-box input {
+        min-width: 532px;
+    }
     .container .footer {
-        justify-content: center;
+        display: none;
+    }
+}
+
+/* Viewport Mobile */
+@media screen and (max-width: 548px) {
+    .container .content {
+        gap: 1rem;
+    }
+    .container .content img.google-logo {
+        min-width: 150px;
+        margin-top: 2rem;
+    }
+    .container .content .input-box {
+        min-width: 100%;
+    }
+    .container .content .input-box input {
+        width: 95%;
+        min-width: 0;
+        border-radius: 30px;
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+    .container .content .input-box i {
+        display: none;
+    }
+    .container .content .box-container {
+        overflow: scroll;
+        max-width: 390px;
+        justify-content: flex-start;
+    }
+    .container .content .box-container #box i,
+    #box-shortcut {
+        font-size: 1rem;
+    }
+    .container .content .box-container #box figcaption,
+    #box-shortcut figcaption {
+        margin-top: 0.5rem;
+    }
+    .container .footer {
+        display: none;
     }
 }
